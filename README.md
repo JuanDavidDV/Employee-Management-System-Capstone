@@ -285,7 +285,7 @@ Parameters:
 - Incorporate email account to the app so that users could send emails directly from there
 
 ## Long Term Features
-- Incorporate AI
+- Incorporate AI to automate and make suggestions on future decisions regarding company's employees demand and salaries
 - Generate monthly .csv reports showing company progress and insights  
 - Integrate other analytical tools such as Power BI
 
