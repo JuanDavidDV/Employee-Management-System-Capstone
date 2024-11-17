@@ -76,19 +76,19 @@ No external APIs will be used for this project
 ### Mockups
 
 #### Landing Page
-![](landing.png)
+<img src="./landing.png" width="550"/>
 
 #### Admin Login Form
-![](login-admin.png)
+<img src="./login-admin.png" width="550"/>
 
 #### Employee Login Form
-![](login-employee.png)
+<img src="./login-employee.png" width="550"/>
 
 #### Admin Dashboard
-![](dashboard.png)
+<img src="./dashboard.png" width="550"/>
 
 #### Admin Departments 
-![](departments.png)
+<img src="./departments.png" width="550"/>
 
 Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
 
