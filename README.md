@@ -4,7 +4,7 @@ Employee Management System JD
 ## Overview
 
 Employee Management System JD app is a comprehensive tool designed to administrate and automate various 
-business needs in an organization. It allows businesses to effectively manage employees data, create, modify, and delete employees, manage departments, salary budget overview, and user authentication. The app will have two main sites: Admin Mode and Employee Mode. It is a user-friendly solution for between management teams and employees. 
+business needs in an organization. It allows businesses to effectively manage employees data, create, modify, and delete employees, manage departments, salary budget overview, and user authentication. The app will have two main sites: Admin Mode and Employee Mode. It is a user-friendly solution between management teams and employees. 
 
 ### Problem
 
@@ -12,8 +12,7 @@ This application is designed to facilitate and provide user-friendly solutions t
 
 ### User Profile
 
-Who will use your app? How will they use it? Any special considerations that your app must take into account.
-The initial interphase of the app is to sign-in as an Admin or an Employee. Only admins can create employees and admins accounts. 
+The initial interphase of the app is to sign-in as an Admin or an Employee. Only admins can create employees and admins accounts. Moreover, they are the only ones who can have access to the dashboard.
 
 - Admins: 
     - Manage and administrate employees data and accounts
@@ -35,6 +34,18 @@ The initial interphase of the app is to sign-in as an Admin or an Employee. Only
     - Edit current employee contact information
 
 ## Implementation
+
+1. Back end development
+    - Routes
+    - Database
+    - Seeds and migrations
+2. Front end development 
+    - Components 
+    - Features
+    - API calls
+3. Integration between front and back end
+4. Fix bugs
+5. Present
 
 ### Tech Stack
 
@@ -72,6 +83,7 @@ No external APIs will be used for this project
 7. Admin Logout: Logs out admin
 8. Employee Profile (home page): current employee profile overview
 9. Employee Edit: Allows to edit employee contact information
+10. Employee logout: logs out employee
 
 ### Mockups
 
@@ -90,24 +102,190 @@ No external APIs will be used for this project
 #### Admin Departments 
 <img src="./departments.png" width="550"/>
 
-Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
+#### Admin Employees
+<img src="./current-employees.png" width="550/>
+
+### Employee Profile
+<img src="./employee-profile.png" width="550"/>
+
 
 ### Data
 
-Describe your data and the relationships between them. You can show this visually using diagrams, or write it out. 
+<img src="./database.png" width="550"/>
 
 ### Endpoints
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+**GET /employee_count** 
+- Gets the total number of employees
+
+Response: 
+```
+    {
+        "total": 10
+    }
+```
+
+**GET /employee**
+- Get's employees details
+
+
+Response: 
+```
+    [
+        {
+            full_name: "John Smith",
+            image: "imageUrl"
+            email: "john.smith@email.com",
+            address: "123 Toronto Road",
+            salary: 124567
+            department: "IT"        
+        },
+        ...
+    ]
+```
+
+**GET /employee/:id**
+- Get's employees details
+
+Parameters: 
+- id: employee id
+
+Response: 
+```
+    {
+        full_name: "John Smith",
+        image: "imageUrl"
+        email: "john.smith@email.com",
+        address: "123 Toronto Road",
+        salary: 124567
+        department: "IT"        
+    }
+```
+
+**GET /departments**
+- Gets a list of parameters
+
+Response: 
+```
+    [
+        {
+            id: 1,
+            name: "IT"
+        },
+        ...   
+    ]
+```
+
+**POST /login/admin**
+- Login as an admin
+
+Parameters: 
+- email: admin's email
+- password: admin's password
+
+Response: 
+```
+{
+    "token": "chwui42342bjk3b4n2il3b4uio2342..."
+}
+```
+
+**POST /login/employee**
+- Login as an employee
+
+Parameters: 
+- email: employee's email
+- password: employee's password
+
+Response: 
+```
+{
+    "token": "chwui42342bjk3b4n2il3b4uio2342..."
+}
+```
+
+**PUT /edit_employee/:id**
+- Edits employee information
+
+Parameters:
+- Employee's id
+
+Response: 
+```
+    {
+        full_name: "John Smith",
+        image: "imageUrl"
+        email: "john.smith@email.com",
+        address: "123 Toronto Road",
+        salary: 124567
+        department: "IT"        
+    }
+```
+
+**DELETE /delete_employee/:id**
+- Deletes an employee
+
+Parameters:
+- Employees id
+
 
 ### Auth
 
-Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
+- JWT auth
+    - Before any user (admin and/or employee) access to the platform, they must sign in
+    - Only the admin is capable of creating user accounts 
+    - JWT will be stored in local storage, and will be remove when user logs out 
+    - Admin interphase is different than employees interphase. Admins have more control to manage organizations data
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+- Create Backend
+    - Node js and Express with routing and placeholder responses
+    - Create mySQL database
+    - Create seeds and migrations
+    - Setup and define foreign keys
+
+- Client Site
+    - Built landing page   
+    - Create a boiler plate
+    - Define routes 
+    - Create components
+
+- Integrate front end with back end
+
+- Create login form for Admins and Employees
+    - Integrate POST requests
+
+- Feature: Implement JWT tokens
+    - Server: Update expected requests / responses on protected endpoints
+    - Client: Store JWT in local storage, include JWT on axios calls
+
+- Create Admin Features:
+    - Dashboard
+    - Current employees
+    - Departments
+    - Manage employees
+    - Logout
+
+- Employee Feature
+    - View current employee profile
+    - Modify current employee contact information
+
+- Bug fixes
+- Demo day
 
 ## Nice-to-haves
 
-Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
+- Include statistical graphs and visuals to facilitate and visualize data in the dashboard for:
+    - Number of admins
+    - Number of employees
+    - Salary 
+- Include demographic information about employees such as: sex, age, and race anonymously  
+- Allow any user to restore password in case they forget it  
+- Incorporate email account to the app so that users could send emails directly from there
+
+## Long Term Features
+- Incorporate AI
+- Generate monthly .csv reports showing company progress and insights  
+- Integrate other analytical tools such as Power BI
+
