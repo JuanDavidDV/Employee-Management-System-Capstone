@@ -1,36 +1,94 @@
 # Project Title
+Employee Management System JD
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
+Employee Management System JD app is a comprehensive tool designed to administrate and automate various 
+business needs in an organization. It allows businesses to effectively manage employees data, create, modify, and delete employees, manage departments, salary budget overview, and user authentication. The app will have two main sites: Admin Mode and Employee Mode. It is a user-friendly solution for between management teams and employees. 
 
 ### Problem
 
-Why is your app needed? Background information around any pain points or other reasons.
+This application is designed to facilitate and provide user-friendly solutions to organizations. Currently, many companies have difficulties tracking and managing employees data, forcing them go trough the time consuming process of searching for records and information in different locations. This application is developed with the objective to have centralized data, improve communication between management and employees, track employees salaries and organization's budges, and show statistical insights about the company size and their employees.   
 
 ### User Profile
 
 Who will use your app? How will they use it? Any special considerations that your app must take into account.
+The initial interphase of the app is to sign-in as an Admin or an Employee. Only admins can create employees and admins accounts. 
+
+- Admins: 
+    - Manage and administrate employees data and accounts
+    - Look for statistical information about the company
+
+- Employees: 
+    -  Check respective profile information
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+- Admins Features: 
+    - Dashboard overview about the organization total salary expenses
+    - Employees statistics information about the organization 
+    - Create, delete, and edit employees within the organization
+    - Create, delete, and edit employees departments 
+
+- Employees feature
+    - Overview of current employee profile information
+    - Edit current employee contact information
 
 ## Implementation
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+- React
+- JavaScript
+- MySQL
+- Node.js
+- Express
+- Bootstrap
+
+- #### Client Libraries
+    - axios
+    - react
+    - react-dom
+    - react-router-dom
+
+- ### Server Libraries
+    - knex
+    - express
+    - bcrypt for password hashing 
+    - jsonwebtoken
+
 
 ### APIs
 
-List any external sources of data that will be used in your app.
+No external APIs will be used for this project
 
 ### Sitemap
-
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
+1. Landing Page: Select if you are login as an admin or employee
+2. Admin Login form or Employee Login form
+3. Admin Dashboard (home page): shows a statistical summary of the company number of employees, number of admins and current total salary.
+4. Admin Departments: allows admin to modify the departments of the organization
+5. Admin Employees: Management, create, edit, and delete employees
+6. Admin Profile: admin profile overview
+7. Admin Logout: Logs out admin
+8. Employee Profile (home page): current employee profile overview
+9. Employee Edit: Allows to edit employee contact information
 
 ### Mockups
+
+#### Landing Page
+![](landing.png)
+
+#### Admin Login Form
+![](login-admin.png)
+
+#### Employee Login Form
+![](login-employee.png)
+
+#### Admin Dashboard
+![](dashboard.png)
+
+#### Admin Departments 
+![](departments.png)
 
 Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
 
