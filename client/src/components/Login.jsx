@@ -1,15 +1,23 @@
 import { useState } from "react";
 import axios from "axios";
 
+const baseUrl = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const [account, setAccount] = useState({
     email: "",
     password: ""
   });
 
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
-
+    try {
+      const { data } = await axios.post(baseUrl + "/auth/adminlogin");
+      console.log(data);
+    }
+    catch(error) {
+      console.error(error);
+    }
   }
  
   return (
