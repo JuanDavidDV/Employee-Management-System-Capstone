@@ -1,8 +1,17 @@
 import { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState(null);
+  const [account, setAccount] = useState({
+    email: "",
+    password: ""
+  });
 
+  const loginUser = (e) => {
+    e.preventDefault();
+
+  }
+ 
   return (
     <section className="d-flex flex-column vh-100 bg-body-secondary justify-content-center align-items-center">
       <h1 className="text-center p-2">Welcome</h1>
@@ -11,10 +20,11 @@ const Login = () => {
           className="p-3 rounded border border-primary bg-primary-subtle"
           style={{ maxWidth: "25rem", width: "90%", height: "20rem" }}>
           <h2 className="pb-3">Login Page</h2>
-          <form>
+          <form onSubmit={loginUser}>
             <div className="pb-3">
               <label htmlFor="email"><b>Please enter your email:</b></label>
               <input 
+                onChange={(e) => setAccount({...account, email : e.target.value})}
                 className="form-control rounded" 
                 type="email" 
                 id="email" 
@@ -24,7 +34,8 @@ const Login = () => {
             </div>
             <div className="pb-3">
               <label htmlFor="password"><b>Please enter your password:</b></label>
-              <input 
+              <input
+                onChange={(e) => setAccount({...account, password : e.target.value})} 
                 className="form-control rounded" 
                 type="password" 
                 id="password" 
