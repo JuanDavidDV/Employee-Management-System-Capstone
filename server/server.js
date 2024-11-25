@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("You have successfully connected to the server.")
 });
 
-app.use("/admin", adminRoutes);  //Incorporates admin route
+app.use("/login", adminRoutes);  //Incorporates admin route
 
 // 404 handler
  app.use((req, res) => {

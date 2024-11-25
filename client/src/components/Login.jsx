@@ -12,7 +12,7 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(baseUrl + "/auth/adminlogin");
+      const { data } = await axios.post(baseUrl + "/login/admin", account);
       console.log(data);
     }
     catch(error) {
