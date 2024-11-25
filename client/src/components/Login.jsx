@@ -12,7 +12,7 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(baseUrl + "/login/admin", account);
+      const { data } = await axios.post(baseUrl + "/login/admin", account, {withCredentials: true}); // Ensures token is send in the request
       console.log(data);
     }
     catch(error) {

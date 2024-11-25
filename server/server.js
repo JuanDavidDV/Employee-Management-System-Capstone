@@ -6,7 +6,12 @@ import cors from "cors";
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT"],
+  credentials: true
+}));
+
 app.use(express.json());  //Middleware to parse JSON on body-parser
 
 // Root route confirm successful connection to user
