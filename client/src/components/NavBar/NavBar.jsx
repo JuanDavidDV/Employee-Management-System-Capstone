@@ -3,7 +3,7 @@ import "./NavBar.css"
 
 const NavBar = () => {
   return (
-    <header className="bg-body-secondary py-3 fixed-top w-100 z-1000">
+    <header className="bg-body-secondary py-3">
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/admin/dashboard">Dashboard</NavLink>

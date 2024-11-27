@@ -1,15 +1,10 @@
-const dashboard = () => {
+const Dashboard = () => {
   return (
-    <section className="bg-success bg-opacity-10 vh-100">
-        <div>
-          <div>
-            <div>
-              
-            </div>
-          </div>
-        </div>
+    <section >
+Hello
+
     </section>
   )
 }
 
-export default dashboard;
+export default Dashboard;
