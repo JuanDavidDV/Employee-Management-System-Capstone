@@ -1,0 +1,24 @@
+/* Style for navbar links */
+.navbar-nav .nav-link {
+    color: #6c757d;  /* Default color */
+    transition: all 0.3s ease;  /* Smooth transition for hover and active states */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: #007bff;  /* Change background color on hover */
+    color: white !important;    /* Text color changes to white */
+    border-radius: 5px;         /* Optional: Add rounded corners on hover */
+  }
+  
+  /* Style for active navbar link */
+  .navbar-nav .nav-link.active {
+    background-color: #0056b3;  /* Different background color for the active link */
+    color: white !important;     /* Ensure text is readable */
+    border-radius: 5px;          /* Optional: Rounded corners for active state */
+  }
+  
+  /* Optional: When the navbar items are disabled (like Logout) */
+  .navbar-nav .nav-link.disabled {
+    color: #6c757d;  /* Grayed out color for disabled links */
+    pointer-events: none;  /* Prevent clicking */
+  }
