@@ -1,8 +1,8 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from './components/Login';
-import Dashboard from "./components/Dashboard";
+import Login from './pages/LoginPage';
+import AdminPage from "./pages/AdminPage";
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/admin/login" element={<Login />} />
-        <Route path="admin/dashboard" element={<Dashboard />} />          
+        <Route path="admin/dashboard" element={<AdminPage />} />          
       </Routes>
     
     </BrowserRouter>

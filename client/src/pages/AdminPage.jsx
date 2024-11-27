@@ -1,8 +1,13 @@
+import NavBar from "../components/NavBar";
+
 const AdminPage = () => {
   return (
-    <main>
-      
-    </main>
+    <>
+      <NavBar />
+      <main>
+
+      </main>
+    </>
   )
 }
 
