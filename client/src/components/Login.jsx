@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -9,11 +10,13 @@ const Login = () => {
     password: ""
   });
 
+  const navigate = useNavigate();
+
   const loginUser = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(baseUrl + "/login/admin", account, {withCredentials: true}); // Ensures token is send in the request
-      console.log(data);
+      navigate("/admin/dashboard")
     }
     catch(error) {
       console.error(error);
