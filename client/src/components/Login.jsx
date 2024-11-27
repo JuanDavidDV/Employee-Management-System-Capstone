@@ -10,16 +10,24 @@ const Login = () => {
     password: ""
   });
 
+  const [error, setError] = useState(null)
+
   const navigate = useNavigate();
 
   const loginUser = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(baseUrl + "/login/admin", account, {withCredentials: true}); // Ensures token is send in the request
-      navigate("/admin/dashboard")
+      if (data) {
+        navigate("/admin/dashboard")
+      } else {
+        setError(data.message || "An unexpected error occurred" )
+      }
+      
     }
     catch(error) {
       console.error(error);
+      setError("Incorrect email or password")
     }
   }
  
@@ -31,6 +39,7 @@ const Login = () => {
           className="p-3 rounded border border-primary bg-primary-subtle"
           style={{ maxWidth: "25rem", width: "90%", height: "20rem" }}>
           <h2 className="pb-3">Login Page</h2>
+          {error && <div className="text-danger">{error}</div> }
           <form onSubmit={loginUser}>
             <div className="pb-3">
               <label htmlFor="email"><b>Please enter your email:</b></label>
