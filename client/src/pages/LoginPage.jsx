@@ -10,7 +10,7 @@ const Login = () => {
     password: ""
   });
 
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 

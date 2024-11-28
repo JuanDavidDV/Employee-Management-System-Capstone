@@ -50,10 +50,36 @@ export const adminLogin = async (req, res) => {
 };
 
 export const newCategory = async (req, res) => {
+  if (!req.body.newCategory) {
+    return res.status(400).json({
+      message: "Please provide a category"
+    })
+  };
+
+  const { newCategory } = req.body;
+
   try {
+      // Check if a category with the same name already exists
+      const existingCategory = await knex('categories')
+      .where('name', newCategory)
+      .first();  
+
+    if (existingCategory) {
+      return res.status(400).json({
+        message: "Category already exists"
+      });
+    }
     
+    const [categoryId] = await knex("categories").insert({ name: newCategory });
 
-  } catch(error) {
-
+    return res.status(201).json({
+      message: "Category created successfully",
+      category: { id: categoryId, name: newCategory }
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "Error creating category"
+    });
   }
-}
+};
