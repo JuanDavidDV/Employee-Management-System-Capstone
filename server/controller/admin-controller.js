@@ -49,6 +49,20 @@ export const adminLogin = async (req, res) => {
   }
 };
 
+// Categories Section
+
+export const getCategories = async (req, res) => {
+  try {
+    const categories = await knex("categories").select("name");
+    return res.status(200).json(categories);
+  } catch (error) {
+    console.error("Error retrieving the categories", error);
+    restart.status(400).json({
+      message: "Could not get categories"
+    })
+  };
+};
+
 export const newCategory = async (req, res) => {
   if (!req.body.newCategory) {
     return res.status(400).json({
@@ -83,3 +97,4 @@ export const newCategory = async (req, res) => {
     });
   }
 };
+

@@ -14,7 +14,7 @@ const AddCategories = () => {
   const createCategory = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(baseUrl + "/admin/add-categories", {newCategory: newCategory});
+      const { data } = await axios.post(baseUrl + "/admin/categories", {newCategory: newCategory});
       if (data) {
         navigate("/admin/categories");
       } else {
