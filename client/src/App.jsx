@@ -7,7 +7,9 @@ import AdminPage from "./pages/AdminPage";
 import Dashboard from "./components/Dashboard";
 import Employees from "./components/Employees";
 import Categories from "./components/Categories";
+import AddCategories from "./components/AddCategories";
 import Profile from "./components/Profile";
+
 
 function App() {
 
@@ -18,7 +20,7 @@ function App() {
         <Route path="/admin" element={<AdminPage />}> 
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="categories" element={<Categories />} />
-          <Route path="add-categories" />
+          <Route path="add-categories" element={<AddCategories /> } />
           <Route path="employees" element={<Employees />} />
           <Route path="profile" element={<Profile />} />
         </Route>
