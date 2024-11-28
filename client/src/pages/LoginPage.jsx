@@ -17,7 +17,7 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(baseUrl + "/login/admin", account, {withCredentials: true}); // Ensures token is send in the request
+      const { data } = await axios.post(baseUrl + "/admin/login", account, {withCredentials: true}); // Ensures token is send in the request
       if (data) {
         navigate("/admin/dashboard")
       } else {
