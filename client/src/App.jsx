@@ -6,6 +6,7 @@ import Login from './pages/LoginPage';
 import AdminPage from "./pages/AdminPage";
 import Dashboard from "./components/Dashboard";
 import Employees from "./components/Employees";
+import AddEmployees from "./components/AddEmployees";
 import Categories from "./components/Categories";
 import AddCategories from "./components/AddCategories";
 import Profile from "./components/Profile";
@@ -22,7 +23,7 @@ function App() {
           <Route path="categories" element={<Categories />} />
           <Route path="categories/new" element={<AddCategories /> } />
           <Route path="employees" element={<Employees />} />
-          <Route path="employees/new" element={<Employees />} />
+          <Route path="employees/new" element={<AddEmployees />} />
           <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
