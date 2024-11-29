@@ -1,6 +1,25 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const AddEmployees = () => {
+
+  const [categories, setCategories] = useState([]);
+
+  const fetchCategories = async () => {
+    try {
+      const {data} = await axios.get(baseUrl + "/admin/categories")
+      setCategories(data);
+    } 
+    catch(error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
   return (
     <section className="d-flex flex-column h-75 justify-content-center align-items-center mt-2 pb-5">
       <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center w-100 pt-4">
@@ -56,8 +75,13 @@ const AddEmployees = () => {
 
               <div className="pb-3">
                 <label htmlFor="category" className="form-label"><b>Please select the new employee's category:</b></label>
-                <select name="category" id="category">
-                
+                <select name="category" id="category" className="form-select">
+                  <option value="" disable selected className="fst-italic text-muted">
+                    Please select a category
+                  </option>
+                  {categories.map((category) => {
+                    return <option key={category.id} value={category.name}>{category.name}</option>
+                  })}
                 </select>
               </div>
 
