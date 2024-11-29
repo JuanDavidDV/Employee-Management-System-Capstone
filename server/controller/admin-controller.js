@@ -50,7 +50,6 @@ export const adminLogin = async (req, res) => {
 };
 
 // Categories Section
-
 export const getCategories = async (req, res) => {
   try {
     const categories = await knex("categories").select("name", "id");

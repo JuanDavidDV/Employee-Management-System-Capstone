@@ -22,6 +22,7 @@ function App() {
           <Route path="categories" element={<Categories />} />
           <Route path="categories/new" element={<AddCategories /> } />
           <Route path="employees" element={<Employees />} />
+          <Route path="employees/new" element={<Employees />} />
           <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
