@@ -53,7 +53,7 @@ export const adminLogin = async (req, res) => {
 
 export const getCategories = async (req, res) => {
   try {
-    const categories = await knex("categories").select("name");
+    const categories = await knex("categories").select("name", "id");
     return res.status(200).json(categories);
   } catch (error) {
     console.error("Error retrieving the categories", error);
