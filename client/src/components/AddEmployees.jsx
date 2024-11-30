@@ -15,7 +15,7 @@ const AddEmployees = () => {
   })
 
   const [categories, setCategories] = useState([]);
-
+  const [error, setError] = useState(null);
   const fetchCategories = async () => {
     try {
       const {data} = await axios.get(baseUrl + "/admin/categories")
@@ -29,6 +29,18 @@ const AddEmployees = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
+
+  const newEmployee = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(baseUrl + "/admin/employees", employeeDetails);
+      console.log(data);
+    }
+    catch(error) {
+      console.error(error);
+    }
+  }
+
   return (
     <section className="d-flex flex-column h-75 justify-content-center align-items-center mt-2 pb-5">
       <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center w-100 pt-4">
@@ -37,8 +49,8 @@ const AddEmployees = () => {
           style={{ maxWidth: "28rem", width: "90%", minHeight: "45em" }}
         >
           <h2 className="pb-3">Add a New Employee</h2>
-
-          <form > {/*Add new employee function*/}
+          {error && <div className="text-danger">{error}</div> }
+          <form onSubmit={newEmployee} > {/*Add new employee function*/}
             <div className="pb-3">
               <div className="pb-3">
                 <label htmlFor="name" className="form-label"><b>Please enter the new employee's full name:</b></label>
@@ -88,10 +100,10 @@ const AddEmployees = () => {
 
               <div className="pb-3">
                 <label htmlFor="category" className="form-label"><b>Please select the new employee's category:</b></label>
-                <select name="category" id="category" className="form-select"
+                <select name="category" id="category" className="form-select" value={employeeDetails.category} 
                   onChange={(e) => setEmployeeDetails({...employeeDetails, category: e.target.value})}
                 >
-                  <option value="" disable selected className="fst-italic text-muted">
+                  <option value="" disabled className="fst-italic text-muted">
                     Please select a category
                   </option>
                   {categories.map((category) => {
