@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -12,7 +13,9 @@ const AddEmployees = () => {
     category: "",
     salary: "", 
     address: ""
-  })
+  });
+
+  const navigate = useNavigate();
 
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
@@ -50,11 +53,17 @@ const AddEmployees = () => {
     formData.append("image", newEmployeeDetails.image); // Image field
 
      try {
-    const { data } = await axios.post(baseUrl + "/admin/employees", formData, {
+      const { data } = await axios.post(baseUrl + "/admin/employees", formData, {
       headers: {
         "Content-Type": "multipart/form-data",  // Ensures the request is sent as form data
       },
-    });
+      });
+
+      if(data) {
+        navigate("/admin/employees")
+      } else {
+        setError(data.message || "An unexpected error occurred" );
+      }
     }
     catch (error) {
       console.error(error);
