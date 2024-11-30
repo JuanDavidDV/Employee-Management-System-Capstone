@@ -7,7 +7,7 @@ export function up(knex) {
       .createTable("admin", (table) => {
         table.increments("id").primary();
         table.string("email").notNullable();
-        table.string("password").notNullable();
+        table.text("password").notNullable();
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table
           .timestamp("updated_at")
