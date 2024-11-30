@@ -38,7 +38,7 @@ const AddEmployees = () => {
         >
           <h2 className="pb-3">Add a New Employee</h2>
 
-          <form onSubmit={newEmployee}>
+          <form > {/*Add new employee function*/}
             <div className="pb-3">
               <div className="pb-3">
                 <label htmlFor="name" className="form-label"><b>Please enter the new employee's full name:</b></label>
