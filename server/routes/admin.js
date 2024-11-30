@@ -10,4 +10,7 @@ adminRoutes.route("/categories")
   .get(adminController.getCategories)
   .post(adminController.newCategory)
 
+adminRoutes.route("/employees")
+.post(adminController.newEmployee)
+
 export default adminRoutes;
