@@ -33,7 +33,7 @@ const AddEmployees = () => {
   const newEmployee = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(baseUrl + "/admin/employees", newEmployeeDetails);
+      const { data } = await axios.post(baseUrl + "/admin/employees", {newEmployeeDetails});
       console.log(data);
     }
     catch(error) {

@@ -1,6 +1,7 @@
 import initKnex from "knex";
 import configuration from "../knexfile.js";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 const knex = initKnex(configuration);
 
@@ -27,7 +28,7 @@ export const adminLogin = async (req, res) => {
     // Create the JWT token if the email and password are correct
     const payload = {
       role: "admin",
-      email: data.email, 
+      email: data.email,
     };
     const secretKey = process.env.JWT_SECRET_KEY;
     const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
@@ -72,17 +73,17 @@ export const newCategory = async (req, res) => {
   const { newCategory } = req.body;
 
   try {
-      // Check if a category with the same name already exists
-      const existingCategory = await knex("categories")
+    // Check if a category with the same name already exists
+    const existingCategory = await knex("categories")
       .where('name', newCategory)
-      .first();  
+      .first();
 
     if (existingCategory) {
       return res.status(400).json({
         message: "Category already exists"
       });
     }
-    
+
     const [categoryId] = await knex("categories").insert({ name: newCategory });
 
     return res.status(201).json({
@@ -130,11 +131,13 @@ export const newEmployee = async (req, res) => {
       });
     }
 
-     // Insert the new employee into the "employees" table
-     const [newEmployeeId] = await knex("employees").insert({
+    const hashPassword = await bcrypt.hash(password, 10);
+
+    // Insert the new employee into the "employees" table
+    const [newEmployeeId] = await knex("employees").insert({
       name,
       image,
-      password,  // In a real-world scenario, password should be hashed before storing it
+      password: hashPassword,  
       email,
       category_id: category,  // Set the foreign key relationship
       salary,
