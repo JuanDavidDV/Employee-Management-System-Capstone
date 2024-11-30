@@ -4,7 +4,7 @@ import axios from "axios";
 const baseUrl = import.meta.env.VITE_API_URL;
 
 const AddEmployees = () => {
-  const [employeeDetails, setEmployeeDetails] = useState({
+  const [newEmployeeDetails, setNewEmployeeDetails] = useState({
     name: "", 
     image: "",
     password: "",
@@ -33,7 +33,7 @@ const AddEmployees = () => {
   const newEmployee = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(baseUrl + "/admin/employees", employeeDetails);
+      const { data } = await axios.post(baseUrl + "/admin/employees", newEmployeeDetails);
       console.log(data);
     }
     catch(error) {
@@ -55,7 +55,7 @@ const AddEmployees = () => {
               <div className="pb-3">
                 <label htmlFor="name" className="form-label"><b>Please enter the new employee's full name:</b></label>
                 <input
-                  onChange={(e) => setEmployeeDetails({...employeeDetails, name: e.target.value})}
+                  onChange={(e) => setNewEmployeeDetails({...newEmployeeDetails, name: e.target.value})}
                   className="form-control rounded"
                   type="text"
                   id="name"
@@ -70,14 +70,14 @@ const AddEmployees = () => {
                   className="form-control rounded"
                   type="file"
                   id="inputGroupFile01"
-                  onChange={(e) => setEmployeeDetails({...employeeDetails, image: e.target.files[0]})}
+                  onChange={(e) => setNewEmployeeDetails({...newEmployeeDetails, image: e.target.files[0]})}
                 />
               </div>
 
               <div className="pb-3">
                 <label htmlFor="password" className="form-label"><b>Please create a password for the new employee:</b></label>
                 <input
-                  onChange={(e) => setEmployeeDetails({...employeeDetails, password: e.target.value})}
+                  onChange={(e) => setNewEmployeeDetails({...newEmployeeDetails, password: e.target.value})}
                   className="form-control rounded"
                   type="password"
                   id="password"
@@ -89,7 +89,7 @@ const AddEmployees = () => {
               <div className="pb-3">
                 <label htmlFor="email" className="form-label"><b>Please enter the new employee's email:</b></label>
                 <input
-                  onChange={(e) => setEmployeeDetails({...employeeDetails, email: e.target.value})}
+                  onChange={(e) => setNewEmployeeDetails({...newEmployeeDetails, email: e.target.value})}
                   className="form-control rounded"
                   type="email"
                   id="email"
@@ -100,8 +100,8 @@ const AddEmployees = () => {
 
               <div className="pb-3">
                 <label htmlFor="category" className="form-label"><b>Please select the new employee's category:</b></label>
-                <select name="category" id="category" className="form-select" value={employeeDetails.category} 
-                  onChange={(e) => setEmployeeDetails({...employeeDetails, category: e.target.value})}
+                <select name="category" id="category" className="form-select" value={newEmployeeDetails.category} 
+                  onChange={(e) => setNewEmployeeDetails({...newEmployeeDetails, category: e.target.value})}
                 >
                   <option value="" disabled className="fst-italic text-muted">
                     Please select a category
@@ -115,7 +115,7 @@ const AddEmployees = () => {
               <div className="pb-3">
                 <label htmlFor="salary" className="form-label"><b>Please enter the new employee's salary:</b></label>
                 <input
-                  onChange={(e) => setEmployeeDetails({...employeeDetails, salary: e.target.value})}
+                  onChange={(e) => setNewEmployeeDetails({...newEmployeeDetails, salary: e.target.value})}
                   className="form-control rounded"
                   type="text"
                   id="salary"
@@ -127,7 +127,7 @@ const AddEmployees = () => {
               <div className="pb-3">
                 <label htmlFor="address" className="form-label"><b>Please enter the new employee's address:</b></label>
                 <input
-                  onChange={(e) => setEmployeeDetails({...employeeDetails, address: e.target.value})}
+                  onChange={(e) => setNewEmployeeDetails({...newEmployeeDetails, address: e.target.value})}
                   className="form-control rounded"
                   type="text"
                   id="address"

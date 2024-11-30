@@ -97,3 +97,14 @@ export const newCategory = async (req, res) => {
   }
 };
 
+// Employee Secction
+
+export const newEmployee = async (req, res) => {
+  if(!req.body.newEmployeeDetails) {
+    return res.status(400).json({
+      message: "Please provide all employees details"
+    })
+  };
+
+  const { newEmployeeDetails }
+}
