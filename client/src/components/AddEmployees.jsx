@@ -32,14 +32,41 @@ const AddEmployees = () => {
 
   const newEmployee = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await axios.post(baseUrl + "/admin/employees", {newEmployeeDetails});
-      console.log(data);
+
+    setError(null);
+
+    if (!newEmployeeDetails.name || !newEmployeeDetails.email || !newEmployeeDetails.category || !newEmployeeDetails.salary || !newEmployeeDetails.address || !newEmployeeDetails.password || !newEmployeeDetails.image) {
+      setError("All fields are required including image.");
+      return;
     }
-    catch(error) {
+
+    const formData = new FormData();
+    formData.append("name", newEmployeeDetails.name);
+    formData.append("email", newEmployeeDetails.email);
+    formData.append("category", newEmployeeDetails.category);
+    formData.append("salary", newEmployeeDetails.salary);
+    formData.append("address", newEmployeeDetails.address);
+    formData.append("password", newEmployeeDetails.password);
+    formData.append("image", newEmployeeDetails.image); // Image field
+
+     try {
+    const { data } = await axios.post(baseUrl + "/admin/employees", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",  // Ensures the request is sent as form data
+      },
+    });
+    }
+    catch (error) {
       console.error(error);
+      if (error.response) {
+        // Server returned an error
+        setError(error.response.data.message || "Error creating employee.");
+      } else {
+        // Network error or no response
+        setError("Failed to communicate with the server.");
+      }
     }
-  }
+  };
 
   return (
     <section className="d-flex flex-column h-75 justify-content-center align-items-center mt-2 pb-5">
@@ -69,6 +96,7 @@ const AddEmployees = () => {
                 <input
                   className="form-control rounded"
                   type="file"
+                  name="image"
                   id="inputGroupFile01"
                   onChange={(e) => setNewEmployeeDetails({...newEmployeeDetails, image: e.target.files[0]})}
                 />

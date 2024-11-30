@@ -99,66 +99,48 @@ export const newCategory = async (req, res) => {
 };
 
 // Employee Section
-
 export const newEmployee = async (req, res) => {
-  const { name, image, password, email, category, salary, address } = req.body.newEmployeeDetails;
-
-  // Check if all required fields are provided
-  if (!name || !image || !password || !email || !category || !salary || !address) {
-    return res.status(400).json({
-      message: "Please provide all the required employee details"
-    });
-  }
-
   try {
-    // Check if the category exists
-    const categoryExists = await knex("categories").where({ id: category }).first();
-
-    if (!categoryExists) {
-      return res.status(400).json({
-        message: "The selected category does not exist"
-      });
+    // Check if the image file was uploaded
+    if (!req.file) {
+      return res.status(400).json({ message: "Image file is required" });
     }
 
-    // Check if the email already exists
-    const existingEmployee = await knex("employees")
-      .where({ name, email })
-      .first();
+    // Destructure employee details from the request body
+    const { name, email, category, salary, address, password } = req.body;
+    const image = req.file ? req.file.path : null;  // Image file path from multer
 
+    // Check if all required fields are present
+    if (!name || !email || !category || !salary || !address || !password || !image) {
+      return res.status(400).json({ message: "All fields are required including image" });
+    }
+
+    // Check if employee with the same email already exists
+    const existingEmployee = await knex("employees").where({ email }).first();
     if (existingEmployee) {
-      return res.status(400).json({
-        message: "An employee with this name and email already exists"
-      });
+      return res.status(400).json({ message: "Employee already exists" });
     }
 
-    const hashPassword = await bcrypt.hash(password, 10);
+    // Hash the password before saving
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insert the new employee into the "employees" table
-    const [newEmployeeId] = await knex("employees").insert({
+    // Insert new employee data into the database
+    const [employeeId] = await knex("employees").insert({
       name,
-      image,
-      password: hashPassword,  
       email,
-      category_id: category,  // Set the foreign key relationship
+      category_id: category, 
       salary,
-      address
+      address,
+      password: hashedPassword,
+      image,  // Image file path from multer
     });
 
     return res.status(201).json({
       message: "Employee created successfully",
-      employee: {
-        id: newEmployeeId,
-        name,
-        email,
-        category_id: category,
-        salary,
-        address
-      }
+      employee: { id: employeeId, name, email, category, salary, address, image },
     });
   } catch (error) {
-    console.error("Error creating employee:", error);
-    return res.status(500).json({
-      message: "Error creating the employee"
-    });
+    console.error(error);
+    return res.status(500).json({ message: "Error creating employee" });
   }
-}
+};
