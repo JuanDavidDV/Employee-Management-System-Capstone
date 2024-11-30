@@ -4,6 +4,15 @@ import axios from "axios";
 const baseUrl = import.meta.env.VITE_API_URL;
 
 const AddEmployees = () => {
+  const [employeeDetails, setEmployeeDetails] = useState({
+    name: "", 
+    image: "",
+    password: "",
+    email: "",
+    category: "",
+    salary: "", 
+    address: ""
+  })
 
   const [categories, setCategories] = useState([]);
 
@@ -29,11 +38,12 @@ const AddEmployees = () => {
         >
           <h2 className="pb-3">Add a New Employee</h2>
 
-          <form>
+          <form onSubmit={newEmployee}>
             <div className="pb-3">
               <div className="pb-3">
                 <label htmlFor="name" className="form-label"><b>Please enter the new employee's full name:</b></label>
                 <input
+                  onChange={(e) => setEmployeeDetails({...employeeDetails, name: e.target.value})}
                   className="form-control rounded"
                   type="text"
                   id="name"
@@ -48,12 +58,14 @@ const AddEmployees = () => {
                   className="form-control rounded"
                   type="file"
                   id="inputGroupFile01"
+                  onChange={(e) => setEmployeeDetails({...employeeDetails, image: e.target.files[0]})}
                 />
               </div>
 
               <div className="pb-3">
                 <label htmlFor="password" className="form-label"><b>Please create a password for the new employee:</b></label>
                 <input
+                  onChange={(e) => setEmployeeDetails({...employeeDetails, password: e.target.value})}
                   className="form-control rounded"
                   type="password"
                   id="password"
@@ -65,6 +77,7 @@ const AddEmployees = () => {
               <div className="pb-3">
                 <label htmlFor="email" className="form-label"><b>Please enter the new employee's email:</b></label>
                 <input
+                  onChange={(e) => setEmployeeDetails({...employeeDetails, email: e.target.value})}
                   className="form-control rounded"
                   type="email"
                   id="email"
@@ -75,12 +88,14 @@ const AddEmployees = () => {
 
               <div className="pb-3">
                 <label htmlFor="category" className="form-label"><b>Please select the new employee's category:</b></label>
-                <select name="category" id="category" className="form-select">
+                <select name="category" id="category" className="form-select"
+                  onChange={(e) => setEmployeeDetails({...employeeDetails, category: e.target.value})}
+                >
                   <option value="" disable selected className="fst-italic text-muted">
                     Please select a category
                   </option>
                   {categories.map((category) => {
-                    return <option key={category.id} value={category.name}>{category.name}</option>
+                    return <option key={category.id} value={category.id}>{category.name}</option>
                   })}
                 </select>
               </div>
@@ -88,6 +103,7 @@ const AddEmployees = () => {
               <div className="pb-3">
                 <label htmlFor="salary" className="form-label"><b>Please enter the new employee's salary:</b></label>
                 <input
+                  onChange={(e) => setEmployeeDetails({...employeeDetails, salary: e.target.value})}
                   className="form-control rounded"
                   type="text"
                   id="salary"
@@ -99,6 +115,7 @@ const AddEmployees = () => {
               <div className="pb-3">
                 <label htmlFor="address" className="form-label"><b>Please enter the new employee's address:</b></label>
                 <input
+                  onChange={(e) => setEmployeeDetails({...employeeDetails, address: e.target.value})}
                   className="form-control rounded"
                   type="text"
                   id="address"
