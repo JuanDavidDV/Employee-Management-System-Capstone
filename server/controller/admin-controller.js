@@ -57,7 +57,7 @@ export const getCategories = async (req, res) => {
     return res.status(200).json(categories);
   } catch (error) {
     console.error("Error retrieving the categories", error);
-    restart.status(400).json({
+    res.status(400).json({
       message: "Could not get categories"
     })
   };
@@ -142,5 +142,18 @@ export const newEmployee = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Error creating employee" });
+  }
+};
+
+export const getEmployees = async (req, res) => {
+  try {
+    const employees = await knex("employees").select("name", "email", "address", "salary", "image");
+    return res.status(200).json(employees);
+  }
+  catch (error) {
+    console.error("Error retrieving the employees", error);
+    res.status(400).json({
+      message: "Could not get employees"
+    })
   }
 };
