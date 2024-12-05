@@ -6,12 +6,12 @@ const baseUrl = import.meta.env.VITE_API_URL;
 
 const Employees = () => {
 
-  const [employee, setEmployee] = useState([]);
+  const [employees, setEmployees] = useState([]);
 
   const fetchEmployees = async () => {
     try {
       const {data} = await axios.get(baseUrl + "/admin/employees")
-      setEmployee(data);
+      setEmployees(data);
     } 
     catch(error) {
       console.error(error);
@@ -22,7 +22,7 @@ const Employees = () => {
     fetchEmployees();
   }, []);
 
-  console.log(employee)
+  console.log(employees)
 
   return (
   <section className="px-5 mt-5">
@@ -34,9 +34,24 @@ const Employees = () => {
         <thead>
           <tr>
             <th>Name</th>
+            <th>Email</th>
+            <th>Salary $(CAD)</th>
+            <th>Address</th>
+            <th>Image</th>
           </tr>
         </thead>
         <tbody>
+          {
+            employees.map((employee) => (
+              <tr key={employee.id}>
+                <td>{employee.name}</td>
+                <td>{employee.email}</td>
+                <td>{employee.salary}</td>
+                <td>{employee.address}</td>
+                <td><img src={baseUrl + "/public/images" + employee.image } alt="" /></td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>

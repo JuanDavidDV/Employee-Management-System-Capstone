@@ -33,6 +33,7 @@ adminRoutes.route("/categories")
 
 // Employees Route
 adminRoutes.route("/employees")
-.post(upload.single("image"), adminController.newEmployee);
+.post(upload.single("image"), adminController.newEmployee)
+.get(adminController.getEmployees)
 
 export default adminRoutes;
