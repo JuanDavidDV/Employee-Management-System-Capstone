@@ -22,13 +22,16 @@ const storage = multer.diskStorage({
       storage: storage
     })
 
+// Login Route
 adminRoutes.route("/login")
   .post(adminController.adminLogin)
  
+// Categories Route
 adminRoutes.route("/categories")
   .get(adminController.getCategories)
   .post(adminController.newCategory)
 
+// Employees Route
 adminRoutes.route("/employees")
 .post(upload.single("image"), adminController.newEmployee);
 
