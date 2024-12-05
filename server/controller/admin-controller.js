@@ -108,7 +108,7 @@ export const newEmployee = async (req, res) => {
 
     // Destructure employee details from the request body
     const { name, email, category, salary, address, password } = req.body;
-    const image = req.file ? req.file.path : null;  // Image file path from multer
+    const image = req.file ? `/images/${req.file.filename.replace(/\\/g, '/')}` : null;  // Replace backslashes with forward slashes  // Image file path from multer
 
     // Check if all required fields are present
     if (!name || !email || !category || !salary || !address || !password || !image) {

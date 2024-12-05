@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect} from "react";
 import axios from "axios";
+import "./Employees.css";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -48,9 +49,15 @@ const Employees = () => {
                 <td>{employee.email}</td>
                 <td>{employee.salary}</td>
                 <td>{employee.address}</td>
-                <td><img src={baseUrl + "/public/images" + employee.image } alt="" /></td>
+                <td><img src={baseUrl + employee.image} alt={employee.name} className="employee_picture" />
+                </td>
+                <td>
+                  <button>Delete</button>
+                  <button>Edit</button>
+                </td>
               </tr>
             ))
+
           }
         </tbody>
       </table>

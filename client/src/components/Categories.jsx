@@ -20,6 +20,8 @@ const Categories = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
+
+  console.log(categories)
   
   return (
     <section className="px-5 mt-5">

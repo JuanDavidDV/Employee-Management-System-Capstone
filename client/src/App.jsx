@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Login from './pages/LoginPage';
 import AdminPage from "./pages/AdminPage";
 import Dashboard from "./components/Dashboard";
-import Employees from "./components/Employees";
+import Employees from "./components/Employees/Employees";
 import AddEmployees from "./components/AddEmployees";
 import Categories from "./components/Categories";
 import AddCategories from "./components/AddCategories";

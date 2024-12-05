@@ -13,7 +13,7 @@ app.use(cors({
 }));
 
 app.use(express.json());  //Middleware to parse JSON on body-parser
-app.use(express.static("./public")) // creates static asset for public folder containing the images
+app.use(express.static("./public")); // creates static asset for public folder containing the images
 
 // Root route confirm successful connection to user
 app.get("/", (req, res) => {
