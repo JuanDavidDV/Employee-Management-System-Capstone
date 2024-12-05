@@ -147,7 +147,7 @@ export const newEmployee = async (req, res) => {
 
 export const getEmployees = async (req, res) => {
   try {
-    const employees = await knex("employees").select("name", "email", "address", "salary", "image");
+    const employees = await knex("employees").select("id", "name", "email", "address", "salary", "image");
     return res.status(200).json(employees);
   }
   catch (error) {
