@@ -45,13 +45,13 @@ const Employees = () => {
           {
             employees.map((employee) => (
               <tr key={employee.id}>
-                <td>{employee.name}</td>
-                <td>{employee.email}</td>
-                <td>{employee.salary}</td>
-                <td>{employee.address}</td>
+                <td className="align-middle">{employee.name}</td>
+                <td className="align-middle">{employee.email}</td>
+                <td className="align-middle">{employee.salary}</td>
+                <td className="align-middle">{employee.address}</td>
                 <td><img src={baseUrl + employee.image} alt={employee.name} className="employee_picture" />
                 </td>
-                <td>
+                <td className="align-middle">
                   <button>Delete</button>
                   <button>Edit</button>
                 </td>
