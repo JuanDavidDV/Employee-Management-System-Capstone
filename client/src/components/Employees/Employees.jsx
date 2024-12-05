@@ -37,8 +37,9 @@ const Employees = () => {
             <th>Name</th>
             <th>Email</th>
             <th>Salary $(CAD)</th>
-            <th>Address</th>
             <th>Image</th>
+            <th>Address</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -48,12 +49,12 @@ const Employees = () => {
                 <td className="align-middle">{employee.name}</td>
                 <td className="align-middle">{employee.email}</td>
                 <td className="align-middle">{employee.salary}</td>
-                <td className="align-middle">{employee.address}</td>
                 <td><img src={baseUrl + employee.image} alt={employee.name} className="employee_picture" />
                 </td>
+                <td className="align-middle">{employee.address}</td>
                 <td className="align-middle">
-                  <button>Delete</button>
-                  <button>Edit</button>
+                  <button className="btn btn-danger me-2">Delete</button>
+                  <button className="btn btn-warning">Edit</button>
                 </td>
               </tr>
             ))
