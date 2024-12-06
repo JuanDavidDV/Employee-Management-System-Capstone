@@ -25,7 +25,7 @@ const EditEmployee = () => {
       setEmployeeDetails({
         ...employeeDetails, 
         name: data.name,
-        
+
       });
     }
     catch(error) {
@@ -45,6 +45,7 @@ const EditEmployee = () => {
 
   useEffect(() => {
     fetchCategories();
+    fetchEmployee();
   }, []);
 
   return (

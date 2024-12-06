@@ -36,4 +36,8 @@ adminRoutes.route("/employees")
 .post(upload.single("image"), adminController.newEmployee)
 .get(adminController.getEmployees)
 
+// Single Employee Route
+adminRoutes.route("/employee/:id")
+  .get(adminController.getSingleEmployee)
+
 export default adminRoutes;
