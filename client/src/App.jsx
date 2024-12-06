@@ -7,6 +7,7 @@ import AdminPage from "./pages/AdminPage";
 import Dashboard from "./components/Dashboard";
 import Employees from "./components/Employees/Employees";
 import AddEmployees from "./components/AddEmployees";
+import EditEmployee from "./components/EditEmployee";
 import Categories from "./components/Categories";
 import AddCategories from "./components/AddCategories";
 import Profile from "./components/Profile";
@@ -24,6 +25,7 @@ function App() {
           <Route path="categories/new" element={<AddCategories /> } />
           <Route path="employees" element={<Employees />} />
           <Route path="employees/new" element={<AddEmployees />} />
+          <Route path="employees/edit/:id" element={<EditEmployee />} />
           <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
