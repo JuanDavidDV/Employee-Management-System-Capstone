@@ -55,8 +55,8 @@ const Employees = () => {
                 </td>
                 <td className="align-middle fs-6 fs-md-5">{employee.address}</td>
                 <td className="align-middle">
-                  <Link to={`/admin/employees/edit/` + employee.id} className="btn btn-danger me-2">Delete</Link>
-                  <Link className="btn btn-warning mt-3 mt-md-0">Edit</Link>
+                  <Link className="btn btn-danger me-2">Delete</Link>
+                  <Link to={`/admin/employees/edit/` + employee.id} className="btn btn-warning mt-3 mt-md-0">Edit</Link>
                 </td>
               </tr>
             ))
