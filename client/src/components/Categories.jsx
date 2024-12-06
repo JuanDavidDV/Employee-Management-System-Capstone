@@ -9,7 +9,7 @@ const Categories = () => {
 
   const fetchCategories = async () => {
     try {
-      const {data} = await axios.get(baseUrl + "/admin/categories")
+      const { data } = await axios.get(baseUrl + "/admin/categories")
       setCategories(data);
     } 
     catch(error) {
@@ -20,8 +20,6 @@ const Categories = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
-
-  console.log(categories)
   
   return (
     <section className="px-5 mt-5">
