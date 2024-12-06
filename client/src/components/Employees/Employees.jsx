@@ -50,13 +50,13 @@ const Employees = () => {
                 <td className="align-middle fs-6 fs-md-5">{employee.name}</td>
                 <td className="align-middle fs-6 fs-md-5">{employee.email}</td>
                 <td className="align-middle fs-6 fs-md-5">{employee.salary}</td>
-                <td>
+                <td className="align-middle" >
                   <img src={baseUrl + employee.image} alt={employee.name} className="employee_picture" />
                 </td>
                 <td className="align-middle fs-6 fs-md-5">{employee.address}</td>
                 <td className="align-middle">
                   <button className="btn btn-danger me-2">Delete</button>
-                  <button className="btn btn-warning">Edit</button>
+                  <button className="btn btn-warning mt-3 mt-md-0">Edit</button>
                 </td>
               </tr>
             ))
