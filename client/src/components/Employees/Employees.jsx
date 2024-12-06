@@ -23,8 +23,6 @@ const Employees = () => {
     fetchEmployees();
   }, []);
 
-  console.log(employees)
-
   return (
 <section className="px-5 mt-5">
   <div className="d-flex justify-content-center">

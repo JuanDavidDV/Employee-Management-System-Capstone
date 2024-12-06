@@ -161,13 +161,37 @@ export const getEmployees = async (req, res) => {
 export const getSingleEmployee = async (req, res) => {
   const { id } = req.params;
   try {
-    const employee = await knex("employees").select("id", "name", "email", "category_id", "salary", "address").where({ id });
-    return res.status(200).json(employee);
+    const employee = await knex("employees").select("id", "name", "email", "category_id", "salary", "address").where({ id: id });
+    return res.status(200).json(employee[0]);
   }
   catch (error) {
     console.error(error);
     return res.status(400).json({
       message: "Could not get employee"
+    })
+  }
+}
+
+export const editSingleEmployee = async (req, res) => {
+  const { id } = req.params;
+  
+  try {
+    const rowsUpdated = await knex("employees").where({ id: id }).update(req.body)
+    
+    if (rowsUpdated === 0) {
+      return res.status(404).json({
+        message: `Employee with ID ${id} not found`
+      });
+    }
+
+    const updateEmployee = await knex("employees").where({ id: id });
+
+    res.status(200).json(updateEmployee[0]);
+  }
+  catch (error) {
+    console.error(error);
+    return res.status(400).json({
+      message: "Could not update employee"
     })
   }
 }

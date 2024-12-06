@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -11,21 +12,23 @@ const EditEmployee = () => {
   const [employeeDetails, setEmployeeDetails] = useState({
     name: "", 
     email: "",
-    category: "",
+    category_id: "",
     salary: "", 
     address: ""
   });
+
+  const navigate = useNavigate();
 
   const fetchEmployee = async () => {
     try {
       const { data } = await axios.get(baseUrl + "/admin/employee/" + id);
       setEmployeeDetails({
         ...employeeDetails, 
-        name: data[0].name,
-        email: data[0].email,
-        category: data[0].category_id,
-        salary: data[0].salary,
-        address: data[0].address
+        name: data.name,
+        email: data.email,
+        category_id: data.category_id,
+        salary: data.salary,
+        address: data.address
       });
       
     }
@@ -51,10 +54,15 @@ const EditEmployee = () => {
 
   const editEmployee = async (e) => {
     e.preventDefault();
-
+    
     try {
-      const { data } = await axios.put(baseUrl + "/admin/employee/" + id, employeeDetails)
-      console.log(data)
+      const { data } = await axios.put(baseUrl + "/admin/employee/" + id, employeeDetails);
+      if(data) {
+        navigate("/admin/employees")
+      } else {
+        setError(data.message || "An unexpected error occurred");
+      }
+
     }
     catch(error) {
       console.error(error);
@@ -98,11 +106,18 @@ const EditEmployee = () => {
 
               <div className="pb-3">
                 <label htmlFor="category" className="form-label"><b>Please select the new employee's category:</b></label>
-                <select name="category" id="category" className="form-select"
-                  onChange={(e) => setEmployeeDetails({...employeeDetails, category: e.target.value})}>
-                  {categories.map((category) => {
-                    return <option key={category.id} value={category.id}>{category.name}</option>
-                  })}
+                <select 
+                  name="category" 
+                  id="category" 
+                  className="form-select"
+                  value={employeeDetails.category_id} // Bind this value to category_id
+                  onChange={(e) => setEmployeeDetails({...employeeDetails, category_id: e.target.value})}
+                >
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
                 </select>
               </div>
 
