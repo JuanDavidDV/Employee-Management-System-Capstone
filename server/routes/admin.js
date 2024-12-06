@@ -39,5 +39,6 @@ adminRoutes.route("/employees")
 // Single Employee Route
 adminRoutes.route("/employee/:id")
   .get(adminController.getSingleEmployee)
+  //.put(adminController.editSingleEmployee)
 
 export default adminRoutes;

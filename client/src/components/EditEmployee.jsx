@@ -10,8 +10,6 @@ const EditEmployee = () => {
   const [categories, setCategories] = useState([]);
   const [employeeDetails, setEmployeeDetails] = useState({
     name: "", 
-    image: "",
-    password: "",
     email: "",
     category: "",
     salary: "", 
@@ -34,7 +32,7 @@ const EditEmployee = () => {
     catch(error) {
       console.error(error);
     }
-  }
+  };
 
   const fetchCategories = async () => {
     try {
@@ -51,7 +49,17 @@ const EditEmployee = () => {
     fetchEmployee();
   }, []);
 
-  console.log(employeeDetails)
+  const editEmployee = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { data } = await axios.put(baseUrl + "/admin/employee/" + id, employeeDetails)
+      console.log(data)
+    }
+    catch(error) {
+      console.error(error);
+    }
+  };
 
   return (
     <section className="d-flex flex-column h-75 justify-content-center align-items-center mt-2 pb-5">
@@ -62,7 +70,7 @@ const EditEmployee = () => {
         >
           <h2 className="pb-3">Edit Employee</h2>
           {error && <div className="text-danger">{error}</div> }
-          <form>
+          <form onSubmit={editEmployee}>
             <div className="pb-3">
               <div className="pb-3">
                 <label htmlFor="name" className="form-label"><b>Please enter the new employee's full name:</b></label>
