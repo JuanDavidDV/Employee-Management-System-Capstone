@@ -160,9 +160,8 @@ export const getEmployees = async (req, res) => {
 
 export const getSingleEmployee = async (req, res) => {
   const { id } = req.params;
-  console.log(id)
   try {
-    const employee = await knex("employees").select("id", "name", "email", "address", "salary", "image").where({ id });
+    const employee = await knex("employees").select("id", "name", "email", "category_id", "salary", "address").where({ id });
     return res.status(200).json(employee);
   }
   catch (error) {
