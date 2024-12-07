@@ -48,6 +48,7 @@ const Employees = () => {
           <tr>
             <th className="fs-6 fs-md-5">Name</th>
             <th className="fs-6 fs-md-5">Email</th>
+            <th className="fs-6 fs-md-5">Category</th>
             <th className="fs-6 fs-md-5">Salary</th>
             <th className="fs-6 fs-md-5">Image</th>
             <th className="fs-6 fs-md-5">Address</th>
@@ -60,6 +61,7 @@ const Employees = () => {
               <tr key={employee.id}>
                 <td className="align-middle fs-6 fs-md-5">{employee.name}</td>
                 <td className="align-middle fs-6 fs-md-5">{employee.email}</td>
+                <td className="align-middle fs-6 fs-md-5">{employee.category_name}</td>
                 <td className="align-middle fs-6 fs-md-5">{employee.salary}</td>
                 <td className="align-middle" >
                   <img src={baseUrl + employee.image} alt={employee.name} className="employee_picture" />

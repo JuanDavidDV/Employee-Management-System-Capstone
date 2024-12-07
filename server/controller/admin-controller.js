@@ -173,16 +173,20 @@ export const newEmployee = async (req, res) => {
 
 export const getEmployees = async (req, res) => {
   try {
-    const employees = await knex("employees").select("id", "name", "email", "address", "salary", "image");
+    // Perform the JOIN query to get the employee details with category name
+    const employees = await knex("employees")
+      .join("categories", "employees.category_id", "categories.id")  // Join employees with categories
+      .select("employees.id", "employees.name", "employees.email", "employees.address", "employees.salary", "employees.image", "categories.name as category_name");  // Select the employee fields and the category name
+
     return res.status(200).json(employees);
-  }
-  catch (error) {
+  } catch (error) {
     console.error("Error retrieving the employees", error);
     res.status(400).json({
       message: "Could not get employees"
-    })
+    });
   }
 };
+
 
 export const getSingleEmployee = async (req, res) => {
   const { id } = req.params;
