@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect} from "react";
 import axios from "axios";
 import "./Employees.css";
@@ -8,6 +8,7 @@ const baseUrl = import.meta.env.VITE_API_URL;
 const Employees = () => {
 
   const [employees, setEmployees] = useState([]);
+  const navigate = useNavigate();
 
   const fetchEmployees = async () => {
     try {
@@ -22,6 +23,23 @@ const Employees = () => {
   useEffect(() => {
     fetchEmployees();
   }, []);
+  
+
+  const deleteEmployee = async (id) => {
+    try {
+      const {data} = await axios.delete(baseUrl + "/admin/employee/" + id);
+      console.log(data);
+      if(data) {
+        navigate("/admin/employee")
+      }
+      else {
+        console.error(error)
+      }
+    }
+    catch(error) {
+      console.error(error)
+    }
+  }
 
   return (
 <section className="px-5 mt-5">
@@ -53,7 +71,7 @@ const Employees = () => {
                 </td>
                 <td className="align-middle fs-6 fs-md-5">{employee.address}</td>
                 <td className="align-middle">
-                  <Link className="btn btn-danger me-2">Delete</Link>
+                  <button className="btn btn-danger me-2" onClick={() => deleteEmployee(employee.id)}>Delete</button>
                   <Link to={`/admin/employees/edit/` + employee.id} className="btn btn-warning mt-3 mt-md-0">Edit</Link>
                 </td>
               </tr>
