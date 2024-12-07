@@ -2,7 +2,8 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Login from './pages/AdminLoginPage';
+import HomePage from "./pages/HomePage";
+import AdminLogin from './pages/AdminLoginPage';
 import AdminPage from "./pages/AdminPage";
 import Dashboard from "./components/Dashboard";
 import Employees from "./components/Employees/Employees";
@@ -18,7 +19,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/admin/login" element={<Login />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminPage />}> 
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="categories" element={<Categories />} />
