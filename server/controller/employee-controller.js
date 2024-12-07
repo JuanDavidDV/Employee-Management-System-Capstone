@@ -50,3 +50,19 @@ export const employeeLogin = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+
+// Single Employee Details
+export const employeeInformation = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const currentEmployee = await knex("employees").select("id", "name", "email", "category_id", "salary", "address").where({ id: id });
+    return res.status(200).json(currentEmployee[0]);
+  }
+  catch(error) {
+    console.error(error);
+    return res.status(400).json({
+      message: "Could not get employee"
+    })
+  }
+};

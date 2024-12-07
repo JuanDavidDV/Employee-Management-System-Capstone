@@ -26,4 +26,7 @@ const upload = multer({
 employeeRoutes.route("/login")
   .post(employeeController.employeeLogin)
 
+employeeRoutes.route("/information/:id")
+  .get(employeeController.employeeInformation)
+
 export default employeeRoutes;
