@@ -36,7 +36,6 @@ export const adminLogin = async (req, res) => {
 
     // Set the token in the cookie
     res.cookie("token", token, {
-      httpOnly: true,
       secure: false,  // Set to true in production
       maxAge: 3600000,  // Token expiration (1 hour)
       sameSite: 'strict',
@@ -55,7 +54,6 @@ export const adminLogout = async (req, res) => {
   try {
     // Clear the 'token' cookie to log the admin out
     res.clearCookie("token", {
-      httpOnly: true,
       secure: false, 
       sameSite: 'strict',
     });
