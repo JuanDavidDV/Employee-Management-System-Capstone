@@ -1,6 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import adminRoutes from "./routes/admin.js";
+import employeeRoutes from "./routes/employee.js";
 import cors from "cors";
 
 const app = express();
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/admin", adminRoutes);  //Incorporates admin route
+app.use("/employee", employeeRoutes); //Incorporates employees route
 
 // 404 handler
  app.use((req, res) => {
