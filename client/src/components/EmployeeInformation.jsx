@@ -7,6 +7,7 @@ const baseUrl = import.meta.env.VITE_API_URL;
 const EmployeeInformation = () => {
   const {id} = useParams();
   const [employeeDetails, setEmployeeDetails] = useState([]);
+  axios.defaults.withCredentials = true;
 
   const fetchEmployee = async () => {
     try {
@@ -23,8 +24,16 @@ const EmployeeInformation = () => {
   }, []);
 
   const logoutEmployee = async () => {
-
-  }
+    try {
+      const { data } = await axios.get(baseUrl + "/employee/logout");
+      if(data) {
+        navigate("/");
+      }
+    }
+    catch(error) {
+      console.error(error);
+    }
+  };
 
   return (
     <section>
