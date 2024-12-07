@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./NavBar.css";
+import axios from "axios";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
