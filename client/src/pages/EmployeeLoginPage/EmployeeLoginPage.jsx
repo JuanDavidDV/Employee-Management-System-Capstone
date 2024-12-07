@@ -18,8 +18,9 @@ const EmployeeLoginPage = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(baseUrl + "/employee/login", account, {withCredentials: true}); // Ensures token is send in the request
+      console.log(data.id)
       if (data) {
-        navigate("/admin/dashboard")
+        navigate("/employee/information/" + data.id )
       } else {
         setError(data.message || "An unexpected error occurred" )
       }
