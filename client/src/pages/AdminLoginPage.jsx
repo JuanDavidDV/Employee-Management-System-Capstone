@@ -38,7 +38,7 @@ const Login = () => {
         <div 
           className="p-3 rounded border border-primary bg-primary-subtle"
           style={{ maxWidth: "25rem", width: "90%", height: "20rem" }}>
-          <h2 className="pb-3">Login Page</h2>
+          <h2 className="pb-3">Admin Login</h2>
           {error && <div className="text-danger">{error}</div> }
           <form onSubmit={loginUser}>
             <div className="pb-3">
