@@ -3,7 +3,7 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import HomePage from "./pages/HomePage/HomePage";
-import AdminLogin from './pages/AdminLoginPage';
+import AdminLogin from './pages/AdminLoginPage/AdminLoginPage';
 import AdminPage from "./pages/AdminPage";
 import Dashboard from "./components/Dashboard";
 import Employees from "./components/Employees/Employees";

@@ -32,8 +32,8 @@ const AdminLogin = () => {
   }
  
   return (
-    <section className="d-flex flex-column vh-100 bg-body-secondary justify-content-center align-items-center">
-      <h1 className="text-center p-2">Welcome</h1>
+    <section className="d-flex flex-column vh-100 bg-body-secondary justify-content-center align-items-center homepage">
+      <h1 className="text-center p-2 text-white">Welcome</h1>
       <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center w-100">
         <div 
           className="p-3 rounded border border-primary bg-primary-subtle"
