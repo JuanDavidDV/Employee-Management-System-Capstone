@@ -5,7 +5,7 @@ const HomePage = () => {
   const navigate = useNavigate();
   return (
     <section className="d-flex flex-column vh-100 bg-body-secondary justify-content-center align-items-center homepage">
-      <h1 className="text-center p-2 text-white mb-5 rounded">Employee Management System JD</h1>
+      <h1 className="text-center bg-dark p-2 text-white mb-5 rounded">Employee Management System JD</h1>
       <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center w-100">
         <div 
           className="p-2 rounded border border-primary bg-primary-subtle"
