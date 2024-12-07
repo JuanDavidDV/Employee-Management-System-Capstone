@@ -239,3 +239,15 @@ export const getEmployeeCount = async (req, res) => {
     return res.status(400)
   }
 };
+
+export const getTotalSalary = async (req, res) => {
+  try {
+    const totalSalary = await knex("employees").sum("salary as total_salary").first();
+    console.log(totalSalary)
+    return res.status(200).json(totalSalary.total_salary)
+  }
+  catch(error) {
+    console.error(error)
+    return res.status(400)
+  }
+};

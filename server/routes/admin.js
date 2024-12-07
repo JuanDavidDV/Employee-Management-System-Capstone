@@ -49,7 +49,7 @@ adminRoutes.route("/dashboard/admin")
 adminRoutes.route("/dashboard/employees")
   .get(adminController.getEmployeeCount)
 
-adminRoutes.route("/dashboard/admin")
+adminRoutes.route("/dashboard/salary")
   .get(adminController.getTotalSalary)
 
 export default adminRoutes;

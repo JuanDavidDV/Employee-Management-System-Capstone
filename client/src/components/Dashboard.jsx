@@ -31,7 +31,8 @@ const Dashboard = () => {
 
   const sumSalary = async () => {
     try {
-      const { data } = await axios.get(baseUrl + "/admin/dashboard/salary")
+      const { data } = await axios.get(baseUrl + "/admin/dashboard/salary");
+      console.log(data)
       setTotalSalary(data);
     }
     catch(error) {
