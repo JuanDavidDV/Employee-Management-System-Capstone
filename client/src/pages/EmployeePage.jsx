@@ -9,7 +9,7 @@ const EmployeePage = () => {
   useEffect(() => {
     const token = document.cookie.split(';').find(c => c.trim().startsWith('token='));
     if(!token) {
-      navigate("/employee/login")
+      navigate("/")
     }
   }, [navigate])
   return (

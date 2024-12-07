@@ -9,7 +9,7 @@ const AdminPage = () => {
   useEffect(() => {
     const token = document.cookie.split(';').find(c => c.trim().startsWith('token='));
     if(!token) {
-      navigate("/admin/login")
+      navigate("/")
     }
   }, [navigate])
   return (
