@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const baseUrl = import.meta.env.VITE_API_URL;
@@ -8,9 +9,11 @@ const Dashboard = () => {
   const [adminCount, setAdminCount] = useState();
   const [employeeCount, setEmployeeCount] = useState();
 
-  const numAdmins = () => {
+  const numAdmins = async () => {
     try {
-      
+      const { data } = await axios.get(baseUrl + "/admin/dashboard");
+      console.log(data);
+      setAdminCount(data);
     } 
     catch(error) {
       console.error(error);
@@ -18,7 +21,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-
+    numAdmins();
   }, []);
 
   return (
@@ -40,7 +43,7 @@ const Dashboard = () => {
       </div>
       <hr />
       <div>
-        <h5>Total: </h5>
+        <h5>Total: {adminCount} </h5>
       </div>
     </div>
 

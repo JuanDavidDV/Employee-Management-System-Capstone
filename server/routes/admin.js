@@ -42,4 +42,8 @@ adminRoutes.route("/employee/:id")
   .put(adminController.editSingleEmployee)
   .delete(adminController.deleteSingleEmployee)
 
+// Dashboard Routes
+adminRoutes.route("/dashboard")
+  .get(adminController.getAdminCount)
+
 export default adminRoutes;
