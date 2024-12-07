@@ -26,9 +26,14 @@ const storage = multer.diskStorage({
 adminRoutes.route("/login")
   .post(adminController.adminLogin)
 
+// Logout Route
 adminRoutes.route("/logout")
   .get(adminController.adminLogout)
  
+// Profile
+adminRoutes.route("/profile")
+  .get(adminController.adminProfile)
+
 // Categories Route
 adminRoutes.route("/categories")
   .get(adminController.getCategories)

@@ -66,6 +66,16 @@ export const adminLogout = async (req, res) => {
   }
 };
 
+export const adminProfile = async(req, res) => {
+  try {
+    const admin = await knex("admin").select("email")
+    return res.status(200).json(admin[0]);
+  }
+  catch(error) {
+
+  }
+};
+
 // Categories Section
 export const getCategories = async (req, res) => {
   try {
