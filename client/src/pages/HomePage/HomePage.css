@@ -1,0 +1,6 @@
+.homepage {
+    background: url("/emp-payroll.png");
+    background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(10, 10, 10, 0.5)), url("/emp-payroll.png");
+    background-position: center;
+    background-size: 100%;
+}

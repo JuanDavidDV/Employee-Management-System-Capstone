@@ -2,7 +2,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import AdminLogin from './pages/AdminLoginPage';
 import AdminPage from "./pages/AdminPage";
 import Dashboard from "./components/Dashboard";
