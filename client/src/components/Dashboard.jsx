@@ -5,14 +5,13 @@ import axios from "axios";
 const baseUrl = import.meta.env.VITE_API_URL;
 
 const Dashboard = () => {
-  const [salaryTotal, setSalaryTotal] = useState();
+  const [totalSalary, setTotalSalary] = useState();
   const [adminCount, setAdminCount] = useState();
   const [employeeCount, setEmployeeCount] = useState();
 
   const numAdmins = async () => {
     try {
       const { data } = await axios.get(baseUrl + "/admin/dashboard");
-      console.log(data);
       setAdminCount(data);
     } 
     catch(error) {
@@ -32,8 +31,9 @@ const Dashboard = () => {
         <h4>Salary</h4>
       </div>
       <hr />
-      <div>
-        <h5>Total: </h5>
+      <div className="d-flex justify-content-between">
+        <h5>Total:</h5>
+        <h5>{totalSalary}</h5>
       </div>
     </div>
 
@@ -42,8 +42,9 @@ const Dashboard = () => {
         <h4>Administrators</h4>
       </div>
       <hr />
-      <div>
-        <h5>Total: {adminCount} </h5>
+      <div className="d-flex justify-content-between">
+        <h5>Total:</h5>
+        <h5>{adminCount}</h5>
       </div>
     </div>
 
@@ -52,8 +53,9 @@ const Dashboard = () => {
         <h4>Employees</h4>
       </div>
       <hr />
-      <div>
-        <h5>Total: </h5>
+      <div className="d-flex justify-content-between">
+        <h5>Total:</h5>
+        <h5>{employeeCount}</h5>
       </div>
     </div>
   </div>
