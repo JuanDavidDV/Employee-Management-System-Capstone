@@ -22,9 +22,18 @@ const Dashboard = () => {
   const numEmployees = async () => {
     try {
       const { data } = await axios.get(baseUrl + "/admin/dashboard/employees");
-      console.log(data)
       setEmployeeCount(data);
     } 
+    catch(error) {
+      console.error(error);
+    }
+  };
+
+  const sumSalary = async () => {
+    try {
+      const { data } = await axios.get(baseUrl + "/admin/dashboard/salary")
+      setTotalSalary(data);
+    }
     catch(error) {
       console.error(error);
     }
