@@ -40,8 +40,9 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    numAdmins(),
-    numEmployees()
+    numAdmins();
+    numEmployees();
+    sumSalary();
   }, []);
 
   return (
