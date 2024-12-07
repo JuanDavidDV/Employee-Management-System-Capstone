@@ -42,10 +42,11 @@ const Dashboard = () => {
 
   const getAdmin = async () => {
     try {
-
+      const { data } = await axios.get(baseUrl + "/admin/dashboard/admin");
+      setAdmin(data);
     }
-    catch{
-      
+    catch(error){
+      console.error(error);
     }
   }
 
@@ -53,6 +54,7 @@ const Dashboard = () => {
     numAdmins();
     numEmployees();
     sumSalary();
+    getAdmin();
   }, []);
 
   return (
