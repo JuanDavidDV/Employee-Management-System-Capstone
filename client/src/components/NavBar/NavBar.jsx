@@ -6,6 +6,7 @@ const baseUrl = import.meta.env.VITE_API_URL;
 
 const NavBar = () => {
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
   const handleLogout = async () => {
     try {
       const { data } = await axios.get(baseUrl + "/admin/logout");
