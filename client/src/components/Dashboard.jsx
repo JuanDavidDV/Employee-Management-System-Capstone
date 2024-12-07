@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -93,7 +93,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="px-5">
+      <div className="px-2 px-md-5">
         <h4 className="mt-5">The Administrators</h4> 
         <div className="table-responsive">
           <table className="table table-striped">
@@ -108,6 +108,10 @@ const Dashboard = () => {
                 admins.map((admin) => (
                   <tr key={admin.id}>
                     <td className="align-middle fs-6 fs-md-5">{admin.email}</td>
+                    <td className="align-middle">
+                      <button className="btn btn-danger me-2">Delete</button>
+                      <Link className="btn btn-warning mt-md-0">Edit</Link>
+                    </td>
                   </tr>
                 ))
               }
