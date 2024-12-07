@@ -1,7 +1,22 @@
-import { NavLink } from "react-router-dom";
-import "./NavBar.css"
+import { NavLink, useNavigate } from "react-router-dom";
+import "./NavBar.css";
+
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const NavBar = () => {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      const { data } = await axios.get(baseUrl + "/admin/logout");
+      if(data) {
+        navigate("/admin/login");
+      }
+    }
+    catch(error) {
+      console.error(error);
+    }
+  };
+
   return (
     <header className="bg-body-secondary py-3">
       <nav className="navbar navbar-expand-lg">
@@ -15,7 +30,7 @@ const NavBar = () => {
               <NavLink className="nav-link m-2" to="/admin/categories">Categories</NavLink>
               <NavLink className="nav-link m-2" to="/admin/employees">Administrate Employees</NavLink>
               <NavLink className="nav-link m-2" to="/admin/profile">Profile</NavLink>
-              <NavLink className="nav-link m-2" to="/admin/login">Logout</NavLink>
+              <NavLink className="nav-link m-2" to="/admin/login" onClick={handleLogout}>Logout</NavLink>
             </div>
           </div>
         </div>
