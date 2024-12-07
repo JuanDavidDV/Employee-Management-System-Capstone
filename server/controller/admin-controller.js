@@ -170,7 +170,7 @@ export const getSingleEmployee = async (req, res) => {
       message: "Could not get employee"
     })
   }
-}
+};
 
 export const editSingleEmployee = async (req, res) => {
   const { id } = req.params;
@@ -192,6 +192,26 @@ export const editSingleEmployee = async (req, res) => {
     console.error(error);
     return res.status(400).json({
       message: "Could not update employee"
+    })
+  }
+};
+
+export const deleteSingleEmployee = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const rowsDeleted = await knex("employees").where({ id: id }).delete();
+
+    if (rowsDeleted === 0) {
+      return res.status(404).json({ message: `User with ID ${id} not found`})
+    }
+
+    res.sendStatus(204);
+  }
+  catch (error) {
+    console.error(error);
+    return res.status(400).json({
+      message: "Could not delete employee"
     })
   }
 }

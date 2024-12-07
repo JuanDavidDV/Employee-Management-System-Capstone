@@ -40,5 +40,6 @@ adminRoutes.route("/employees")
 adminRoutes.route("/employee/:id")
   .get(adminController.getSingleEmployee)
   .put(adminController.editSingleEmployee)
+  .delete(adminController.deleteSingleEmployee)
 
 export default adminRoutes;

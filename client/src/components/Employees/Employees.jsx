@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect} from "react";
 import axios from "axios";
 import "./Employees.css";
@@ -8,7 +8,6 @@ const baseUrl = import.meta.env.VITE_API_URL;
 const Employees = () => {
 
   const [employees, setEmployees] = useState([]);
-  const navigate = useNavigate();
 
   const fetchEmployees = async () => {
     try {
@@ -28,13 +27,9 @@ const Employees = () => {
   const deleteEmployee = async (id) => {
     try {
       const {data} = await axios.delete(baseUrl + "/admin/employee/" + id);
-      console.log(data);
-      if(data) {
-        navigate("/admin/employee")
-      }
-      else {
-        console.error(error)
-      }
+      const employee = document.getElementById(id); //selects employee by ID to be deleted in the UI
+      fetchEmployees();
+      return employee.remove();
     }
     catch(error) {
       console.error(error)
