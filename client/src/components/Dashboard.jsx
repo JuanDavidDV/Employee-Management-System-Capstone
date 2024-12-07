@@ -8,6 +8,7 @@ const Dashboard = () => {
   const [totalSalary, setTotalSalary] = useState();
   const [adminCount, setAdminCount] = useState();
   const [employeeCount, setEmployeeCount] = useState();
+  const [admin, setAdmin] = useState();
 
   const numAdmins = async () => {
     try {
@@ -32,11 +33,19 @@ const Dashboard = () => {
   const sumSalary = async () => {
     try {
       const { data } = await axios.get(baseUrl + "/admin/dashboard/salary");
-      console.log(data)
       setTotalSalary(data);
     }
     catch(error) {
       console.error(error);
+    }
+  }
+
+  const getAdmin = async () => {
+    try {
+
+    }
+    catch{
+      
     }
   }
 
@@ -80,6 +89,22 @@ const Dashboard = () => {
             <h5>Total:</h5>
             <h5>{employeeCount}</h5>
           </div>
+        </div>
+      </div>
+      <div className="px-5">
+        <h4 className="mt-5">The Administrators</h4> 
+        <div className="table-responsive">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th className="fs-6 fs-md-5">Email</th>
+                <th className="fs-6 fs-md-5">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
