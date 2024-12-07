@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 
 const knex = initKnex(configuration);
 
+// Login Section
 export const adminLogin = async (req, res) => {
   const { email, password } = req.body;   //Obtains email and password from the body
 
@@ -213,5 +214,18 @@ export const deleteSingleEmployee = async (req, res) => {
     return res.status(400).json({
       message: "Could not delete employee"
     })
+  }
+}
+
+// Dashboard Section
+
+export const getAdminCount = async (req, res) => {
+  try {
+    const adminCount = await knex("admin").count("id as count").first();
+    return res.status(200).json(adminCount.count);
+  }
+  catch (error) {
+    console.error(error);
+    return res.status(400) 
   }
 }
