@@ -56,7 +56,7 @@ export const employeeInformation = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const currentEmployee = await knex("employees").select("id", "name", "email", "category_id", "salary", "address").where({ id: id });
+    const currentEmployee = await knex("employees").select("id", "name", "image", "email", "category_id", "salary", "address").where({ id: id });
     return res.status(200).json(currentEmployee[0]);
   }
   catch(error) {
