@@ -1,7 +1,17 @@
 import NavBar from "../components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const AdminPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = document.cookie.split(';').find(c => c.trim().startsWith('token='));
+    if(!token) {
+      navigate("/admin/login")
+    }
+  }, [navigate])
   return (
     <>
       <NavBar />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -9,7 +9,6 @@ const Dashboard = () => {
   const [adminCount, setAdminCount] = useState();
   const [employeeCount, setEmployeeCount] = useState();
   const [admins, setAdmins] = useState([]);
-  const navigate = useNavigate();
 
   const numAdmins = async () => {
     try {
@@ -52,17 +51,11 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    const token = document.cookie.split(';').find(c => c.trim().startsWith('token='));
-    console.log(token)
-    if(!token) {
-      navigate("/admin/login")
-    }
-
     getAdmin();
     numAdmins();
     numEmployees();
     sumSalary();
-  }, [navigate]);
+  }, []);
 
   return (
     <section>
