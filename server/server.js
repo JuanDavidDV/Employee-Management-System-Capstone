@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/admin", adminRoutes);  //Incorporates admin route
-app.use("/employee", employeeRoutes); //Incorporates employees route
+app.use("/employee", employeeRoutes); //Incorporates employees route 
 
 // 404 handler
  app.use((req, res) => {

@@ -50,7 +50,7 @@ const EmployeeInformation = () => {
           <h4 className="text-center">Salary: ${employeeDetails.salary}</h4>
           <h4 className="text-center">Email: {employeeDetails.email}</h4>
         </div>
-        <div className="mt-2">
+        <div className="mt-2 mb-5">
           <button className="btn btn-danger me-3" onClick={logoutEmployee}>Logout</button>
         </div>
       </div>
