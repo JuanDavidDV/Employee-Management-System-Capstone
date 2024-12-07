@@ -19,8 +19,19 @@ const Dashboard = () => {
     }
   };
 
+  const numEmployees = async () => {
+    try {
+      const { data } = await axios.get(baseUrl + "/admin/dashboard")
+      setEmployeeCount(data);
+    } 
+    catch(error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     numAdmins();
+    numEmployees();
   }, []);
 
   return (

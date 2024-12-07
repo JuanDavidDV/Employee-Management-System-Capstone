@@ -45,5 +45,6 @@ adminRoutes.route("/employee/:id")
 // Dashboard Routes
 adminRoutes.route("/dashboard")
   .get(adminController.getAdminCount)
+  .get(adminController.getEmployeeCount)
 
 export default adminRoutes;
