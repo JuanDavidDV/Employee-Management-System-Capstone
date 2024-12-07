@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [totalSalary, setTotalSalary] = useState();
   const [adminCount, setAdminCount] = useState();
   const [employeeCount, setEmployeeCount] = useState();
-  const [admin, setAdmin] = useState();
+  const [admins, setAdmins] = useState([]);
 
   const numAdmins = async () => {
     try {
@@ -43,8 +43,7 @@ const Dashboard = () => {
   const getAdmin = async () => {
     try {
       const { data } = await axios.get(baseUrl + "/admin/dashboard/admin-info");
-      console.log(data)
-      setAdmin(data);
+      setAdmins(data);
     }
     catch(error){
       console.error(error);
@@ -52,10 +51,10 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
+    getAdmin();
     numAdmins();
     numEmployees();
     sumSalary();
-    getAdmin();
   }, []);
 
   return (
@@ -105,7 +104,13 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-
+              {
+                admins.map((admin) => (
+                  <tr key={admin.id}>
+                    <td className="align-middle fs-6 fs-md-5">{admin.email}</td>
+                  </tr>
+                ))
+              }
             </tbody>
           </table>
         </div>

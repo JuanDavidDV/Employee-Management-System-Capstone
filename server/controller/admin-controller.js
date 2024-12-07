@@ -231,7 +231,7 @@ export const getAdminCount = async (req, res) => {
 
 export const getAdmin = async (req, res) => {
   try {
-    const admin = await knex("admin").select("email");
+    const admin = await knex("admin").select("id", "email");
     return res.status(200).json(admin);
   }
   catch(error) {
