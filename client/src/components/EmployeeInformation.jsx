@@ -52,7 +52,6 @@ const EmployeeInformation = () => {
         </div>
         <div className="mt-2">
           <button className="btn btn-danger me-3" onClick={logoutEmployee}>Logout</button>
-          <button className="btn btn-warning">Edit</button>
         </div>
       </div>
     </section>
