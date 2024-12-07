@@ -94,13 +94,12 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="px-2 px-md-5">
-        <h4 className="mt-5">The Administrators</h4> 
+        <h4 className="mt-5">The Administrator</h4> 
         <div className="table-responsive">
           <table className="table table-striped">
             <thead>
               <tr>
                 <th className="fs-6 fs-md-5">Email</th>
-                <th className="fs-6 fs-md-5">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -108,10 +107,6 @@ const Dashboard = () => {
                 admins.map((admin) => (
                   <tr key={admin.id}>
                     <td className="align-middle fs-6 fs-md-5">{admin.email}</td>
-                    <td className="align-middle">
-                      <button className="btn btn-danger me-2">Delete</button>
-                      <Link className="btn btn-warning mt-md-0">Edit</Link>
-                    </td>
                   </tr>
                 ))
               }
