@@ -218,14 +218,24 @@ export const deleteSingleEmployee = async (req, res) => {
 }
 
 // Dashboard Section
-
 export const getAdminCount = async (req, res) => {
   try {
-    const adminCount = await knex("admin").count("id as count").first();
+    const adminCount = await knex("admin").count("* as count").first();
     return res.status(200).json(adminCount.count);
   }
   catch (error) {
-    console.error(error);
+    console.error(error)
     return res.status(400) 
   }
-}
+};
+
+export const getEmployeeCount = async (req, res) => {
+  try {
+    const employeeCount = await knex("employees").count("* as count").first();
+    return res.status(200).json(employeeCount.count);
+  }
+  catch (error) {
+    console.error(error)
+    return res.status(400)
+  }
+};
