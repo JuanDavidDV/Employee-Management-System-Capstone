@@ -11,7 +11,7 @@ const NavBar = () => {
     try {
       const { data } = await axios.get(baseUrl + "/admin/logout");
       if(data) {
-        navigate("/admin/login");
+        navigate("/");
       }
     }
     catch(error) {
