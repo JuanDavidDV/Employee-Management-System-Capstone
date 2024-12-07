@@ -33,8 +33,8 @@ adminRoutes.route("/categories")
 
 // Employees Route
 adminRoutes.route("/employees")
-.post(upload.single("image"), adminController.newEmployee)
-.get(adminController.getEmployees)
+  .post(upload.single("image"), adminController.newEmployee)
+  .get(adminController.getEmployees)
 
 // Single Employee Route
 adminRoutes.route("/employee/:id")
@@ -48,5 +48,8 @@ adminRoutes.route("/dashboard/admin")
 
 adminRoutes.route("/dashboard/employees")
   .get(adminController.getEmployeeCount)
+
+adminRoutes.route("/dashboard/admin")
+  .get(adminController.getTotalSalary)
 
 export default adminRoutes;
