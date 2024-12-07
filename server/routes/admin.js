@@ -46,6 +46,9 @@ adminRoutes.route("/employee/:id")
 adminRoutes.route("/dashboard/admin")
   .get(adminController.getAdminCount)
 
+adminRoutes.route("/dashboard/admin-info")
+.get(adminController.getAdmin)
+
 adminRoutes.route("/dashboard/employees")
   .get(adminController.getEmployeeCount)
 

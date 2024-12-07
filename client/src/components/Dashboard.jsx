@@ -42,7 +42,8 @@ const Dashboard = () => {
 
   const getAdmin = async () => {
     try {
-      const { data } = await axios.get(baseUrl + "/admin/dashboard/admin");
+      const { data } = await axios.get(baseUrl + "/admin/dashboard/admin-info");
+      console.log(data)
       setAdmin(data);
     }
     catch(error){
