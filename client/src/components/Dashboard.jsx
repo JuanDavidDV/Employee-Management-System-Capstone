@@ -24,43 +24,42 @@ const Dashboard = () => {
   }, []);
 
   return (
-<section>
-  <div className="p-3 d-flex flex-wrap justify-content-around mt-3">
-    <div className="px-3 bg-warning-subtle pt-2 pb-2 border shadow-sm col-12 col-md-4 col-lg-3 mb-3">
-      <div className="text-center">
-        <h4>Salary</h4>
-      </div>
-      <hr />
-      <div className="d-flex justify-content-between">
-        <h5>Total:</h5>
-        <h5>{totalSalary}</h5>
-      </div>
-    </div>
+    <section>
+      <div className="p-3 d-flex flex-wrap justify-content-around mt-3">
+        <div className="px-3 bg-warning-subtle pt-2 pb-2 border shadow-sm col-12 col-md-4 col-lg-3 mb-3">
+          <div className="text-center">
+            <h4>Salary</h4>
+          </div>
+          <hr />
+          <div className="d-flex justify-content-between">
+            <h5>Total:</h5>
+            <h5>{totalSalary}</h5>
+          </div>
+        </div>
 
-    <div className="px-3 bg-warning-subtle pt-2 pb-2 border shadow-sm col-12 col-md-4 col-lg-3 mb-3">
-      <div className="text-center">
-        <h4>Administrators</h4>
-      </div>
-      <hr />
-      <div className="d-flex justify-content-between">
-        <h5>Total:</h5>
-        <h5>{adminCount}</h5>
-      </div>
-    </div>
+        <div className="px-3 bg-warning-subtle pt-2 pb-2 border shadow-sm col-12 col-md-4 col-lg-3 mb-3">
+          <div className="text-center">
+            <h4>Administrators</h4>
+          </div>
+          <hr />
+          <div className="d-flex justify-content-between">
+            <h5>Total:</h5>
+            <h5>{adminCount}</h5>
+          </div>
+        </div>
 
-    <div className="px-3 bg-warning-subtle pt-2 pb-2 border shadow-sm col-12 col-md-4 col-lg-3 mb-3">
-      <div className="text-center">
-        <h4>Employees</h4>
+        <div className="px-3 bg-warning-subtle pt-2 pb-2 border shadow-sm col-12 col-md-4 col-lg-3 mb-3">
+          <div className="text-center">
+            <h4>Employees</h4>
+          </div>
+          <hr />
+          <div className="d-flex justify-content-between">
+            <h5>Total:</h5>
+            <h5>{employeeCount}</h5>
+          </div>
+        </div>
       </div>
-      <hr />
-      <div className="d-flex justify-content-between">
-        <h5>Total:</h5>
-        <h5>{employeeCount}</h5>
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
   )
 }
 
