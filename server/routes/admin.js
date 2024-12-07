@@ -27,7 +27,7 @@ adminRoutes.route("/login")
   .post(adminController.adminLogin)
 
 adminRoutes.route("/logout")
-.get(adminController.adminLogout)
+  .get(adminController.adminLogout)
  
 // Categories Route
 adminRoutes.route("/categories")

@@ -66,3 +66,20 @@ export const employeeInformation = async (req, res) => {
     })
   }
 };
+
+//Logout Employee
+export const employeeLogout = async (req, res) => {
+  try {
+    // Clear the 'token' cookie to log the employee out
+    res.clearCookie("token", {
+      secure: false, 
+      sameSite: 'strict',
+    });
+
+    return res.status(200).json({ message: "Logout successful" });
+  }
+  catch (error) {
+    console.error("Error encountered during admin logout", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};

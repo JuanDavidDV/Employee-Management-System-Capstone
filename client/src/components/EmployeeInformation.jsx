@@ -1,10 +1,12 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
 const EmployeeInformation = () => {
+  const navigate = useNavigate();
   const {id} = useParams();
   const [employeeDetails, setEmployeeDetails] = useState([]);
   axios.defaults.withCredentials = true;

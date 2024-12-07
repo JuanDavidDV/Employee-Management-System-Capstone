@@ -59,7 +59,8 @@ export const adminLogout = async (req, res) => {
     });
 
     return res.status(200).json({ message: "Logout successful" });
-  } catch (error) {
+  }
+  catch (error) {
     console.error("Error encountered during admin logout", error);
     return res.status(500).json({ message: "Internal server error" });
   }
