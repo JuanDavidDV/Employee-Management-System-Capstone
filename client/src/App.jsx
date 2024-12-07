@@ -12,6 +12,7 @@ import EditEmployee from "./components/EditEmployee";
 import Categories from "./components/Categories";
 import AddCategories from "./components/AddCategories";
 import Profile from "./components/Profile";
+import EmployeePage from "./pages/EmployeePage";
 import EmployeeLoginPage from "./pages/EmployeeLoginPage/EmployeeLoginPage";
 import EmployeeInformation from "./components/EmployeeInformation";
 
@@ -33,7 +34,10 @@ function App() {
           <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="/employee/login" element={<EmployeeLoginPage />} />
-        <Route path="/employee/information/:id" element={<EmployeeInformation />}>
+        <Route path="/employee" element={<EmployeePage />} >
+          <Route path="/employee/information/:id" element={<EmployeeInformation />}>
+        </Route>
+          
 
         </Route>
       </Routes>

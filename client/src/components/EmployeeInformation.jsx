@@ -6,10 +6,12 @@ const baseUrl = import.meta.env.VITE_API_URL;
 
 const EmployeeInformation = () => {
   const {id} = useParams();
+  const [employeeDetails, setEmployeeDetails] = useState([]);
 
   const fetchEmployee = async () => {
     try {
       const { data } = await axios.get(baseUrl + "/employee/information/" + id);
+      setEmployeeDetails(data);
       console.log(data)
       
     }
@@ -24,7 +26,7 @@ const EmployeeInformation = () => {
 
   return (
     <section>
-      helloghnm
+      
     </section>
   )
 };
