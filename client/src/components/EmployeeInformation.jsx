@@ -22,6 +22,10 @@ const EmployeeInformation = () => {
     fetchEmployee();
   }, []);
 
+  const logoutEmployee = async () => {
+
+  }
+
   return (
     <section>
       <div className="d-flex justify-content-center flex-column align-items-center mt-3">
@@ -36,7 +40,7 @@ const EmployeeInformation = () => {
           <h4 className="text-center">Email: {employeeDetails.email}</h4>
         </div>
         <div className="mt-2">
-          <button className="btn btn-danger me-3">Logout</button>
+          <button className="btn btn-danger me-3" onClick={logoutEmployee}>Logout</button>
           <button className="btn btn-warning">Edit</button>
         </div>
       </div>

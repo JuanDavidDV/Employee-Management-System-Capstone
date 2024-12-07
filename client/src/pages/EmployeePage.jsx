@@ -14,7 +14,6 @@ const EmployeePage = () => {
   }, [navigate])
   return (
     <>
-      <NavBar />
       <main className="bg-success bg-opacity-10 min-vh-100">
         <div className="col h-100">
           <div className="p-3 d-flex justify-content-center shadow ">
