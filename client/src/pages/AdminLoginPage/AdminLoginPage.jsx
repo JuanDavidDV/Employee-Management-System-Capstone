@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
-const AdminLogin = () => {
+const AdminLoginPage = () => {
   const [account, setAccount] = useState({
     email: "",
     password: ""
@@ -71,5 +71,5 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default AdminLoginPage;
 
