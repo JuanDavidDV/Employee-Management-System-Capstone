@@ -117,7 +117,7 @@ No external APIs will be used for this project
 <img src="./project-proposal/AdminCategories.png" width="550"/>
 
 #### Admin Employees
-<img src="./project-proposal/AdminEmployeesInfo.png" width="550/>
+<img src="./project-proposal/AdminEmployeesInfo.png" width="550"/>
 
 #### Admin Create Employee
 <img src="./project-proposal/AdminCreateNewEmployee.png" width="550"/>
