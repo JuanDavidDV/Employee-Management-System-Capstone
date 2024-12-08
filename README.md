@@ -20,7 +20,7 @@ This application is designed to facilitate and provide user-friendly solutions t
 
 ### User Profile
 
-The initial interphase of the app is to sign-in as an Admin or an Employee. Only admins can create employees and admins accounts. Moreover, they are the only ones who can have access to the dashboard.
+The initial interphase of the app is to sign-in as an Admin or an Employee. Only admins can create employees and categories. Moreover, they are the only ones who can have access to the dashboard.
 
 - Admins: 
     - Manage and administrate employees data and accounts
@@ -37,7 +37,7 @@ The initial interphase of the app is to sign-in as an Admin or an Employee. Only
     - Dashboard overview about the organization total salary expenses
     - Employees statistics information about the organization 
     - Create, delete, and edit employees within the organization
-    - Create, delete, and edit employees departments 
+    - Create employees departments 
 
 - Employees feature
     - Overview of current employee profile information
@@ -68,14 +68,23 @@ The initial interphase of the app is to sign-in as an Admin or an Employee. Only
 
 - #### Client Libraries
     - axios
+    - bootstrap
+    - popper.js
     - react
     - react-dom
     - react-router-dom
 
 - ### Server Libraries
     - knex
+    - bcrypt
+    - cookie-parser
+    - cors
+    - dotenv
+    - multer
+    - mysql2
+    - nodemon
+    - path
     - express
-    - bcrypt for password hashing 
     - jsonwebtoken
 
 
