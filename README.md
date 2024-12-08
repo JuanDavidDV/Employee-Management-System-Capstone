@@ -58,13 +58,11 @@ The initial interphase of the app is to sign-in as an Admin or an Employee. Only
 5. Present
 
 ### Tech Stack
-
-- React
-- JavaScript
-- MySQL
-- Node.js
-- Express
-- Bootstrap
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,vite,js,npm,nodejs,express,mysql,bootstrap" />
+  </a>
+</p>
 
 - #### Client Libraries
     - axios
