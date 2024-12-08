@@ -105,25 +105,28 @@ No external APIs will be used for this project
 ### Display
 
 #### Landing Page
-<img src="./project-proposal/" width="550"/>
+<img src="./project-proposal/HomePage.png" width="550"/>
 
 #### Admin Login Form
-<img src="./login-admin.png" width="550"/>
-
-#### Employee Login Form
-<img src="./login-employee.png" width="550"/>
+<img src="./project-proposal/AdminLogin.png" width="550"/>
 
 #### Admin Dashboard
-<img src="./dashboard.png" width="550"/>
+<img src="./project-proposal/AdminDashboard.png" width="550"/>
 
 #### Admin Departments 
-<img src="./departments.png" width="550"/>
+<img src="./project-proposal/AdminCategories.png" width="550"/>
 
 #### Admin Employees
-<img src="./current-employees.png" width="550/>
+<img src="./project-proposal/AdminEmployeesInfo.png" width="550/>
 
-### Employee Profile
-<img src="./employee-profile.png" width="550"/>
+#### Admin Create Employee
+<img src="./project-proposal/AdminCreateNewEmployee.png" width="550"/>
+
+#### Employee Login Form
+<img src="./project-proposal/EmployeeLogin.png" width="550"/>
+
+#### Employee Profile
+<img src="./project-proposal/EmployeeProfile.png" width="550"/>
 
 
 ### Data
