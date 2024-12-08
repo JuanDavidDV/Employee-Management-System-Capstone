@@ -79,7 +79,7 @@ const Employees = () => {
     </div>
   </div>
 
-  <Link to="/admin/employees/new" className="btn btn-success mt-3"> Add a New Employee</Link>
+  <Link to="/admin/employees/new" className="btn btn-success mt-3 mb-5"> Add a New Employee</Link>
 </section>
 
   )

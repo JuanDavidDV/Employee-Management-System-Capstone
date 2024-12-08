@@ -1,29 +1,13 @@
 # Project Title
 Employee Management System JD
 
+## Installed Packages 
+- Install all the packages by using:
+    `$ npm install`
+
 ## How to run this project?
-- To run the project use: `$ npm run dev`
-
-## Installed Packages
-- [npm axios](https://www.npmjs.com/package/axios)    
-    - Installation:
-    `$ npm install axios`
-
-- [npm dotenv](https://www.npmjs.com/package/dotenv)    
-    - Installation:
-    `$ npm install dotenv --save`
-
-- [npm moment](https://www.npmjs.com/package/moment)    
-    - Installation:
-    `$ npm install react-dom`
-
-- [npm react-router-dom](https://www.npmjs.com/package/react-router-dom)
-    - Installation:
-    `$ npm install react-router-dom`
-
-- [npm sass](https://www.npmjs.com/package/sass)    
-    - Installation:
-    `$ npm install sass`
+- To run the client side: `$ npm run dev`
+- To run the server side: `$ nodemon server.js`
 
 ## Overview
 
@@ -44,6 +28,8 @@ The initial interphase of the app is to sign-in as an Admin or an Employee. Only
 
 - Employees: 
     -  Check respective profile information
+
+
 
 ### Features
 
@@ -109,10 +95,10 @@ No external APIs will be used for this project
 9. Employee Edit: Allows to edit employee contact information
 10. Employee logout: logs out employee
 
-### Mockups
+### Display
 
 #### Landing Page
-<img src="./landing.png" width="550"/>
+<img src="./project-proposal/" width="550"/>
 
 #### Admin Login Form
 <img src="./login-admin.png" width="550"/>
