@@ -131,7 +131,7 @@ No external APIs will be used for this project
 
 ### Data
 
-<img src="./database.png" width="550"/>
+<img src="./project-proposal/Data Model.png" width="550"/>
 
 ### Endpoints
 
